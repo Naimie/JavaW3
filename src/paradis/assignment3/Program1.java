@@ -4,6 +4,8 @@
 package paradis.assignment3;
 // [You are welcome to add some import statements.]
 
+// why you no work
+
 public class Program1 {
 	final static int NUM_WEBPAGES = 40;
 	private static WebPage[] webPages = new WebPage[NUM_WEBPAGES];
