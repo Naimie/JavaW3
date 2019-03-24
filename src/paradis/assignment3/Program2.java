@@ -4,6 +4,8 @@
 package paradis.assignment3;
 // [You are welcome to add some import statements.]
 
+import java.util.Arrays;
+
 public class Program2 {
     final static int NUM_WEBPAGES = 40;
     private static WebPage[] webPages = new WebPage[NUM_WEBPAGES];
@@ -30,13 +32,15 @@ public class Program2 {
         // Start timing.
         long start = System.nanoTime();
 
-        // [Do modify this sequential part of the program.]
-        for (int i = 0; i < NUM_WEBPAGES; i++)
-            webPages[i].download();
-        for (int i = 0; i < NUM_WEBPAGES; i++)
-            webPages[i].analyze();
-        for (int i = 0; i < NUM_WEBPAGES; i++)
-            webPages[i].categorize();
+       Arrays.stream(webPages)
+            .parallel()
+            .forEach(WebPage :: download);
+        Arrays.stream(webPages)
+                .parallel()
+                .forEach(WebPage :: analyze);
+        Arrays.stream(webPages)
+                .parallel()
+                .forEach(WebPage :: categorize);
 
         // Stop timing.
         long stop = System.nanoTime();
