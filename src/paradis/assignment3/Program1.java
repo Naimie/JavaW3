@@ -78,7 +78,9 @@ public class Program1 {
             this.task = task;
         }
 
-
+        //this run-method will first put all the tasks in the downloadQueue then consume them all
+        //when the download queue is done the analyzeQueue gets processed and then the catagorizeQueue
+        //this could be done in a nested fashion where 4 threads at a time complete all 4 steps before they get reused and start on the first step again
         @Override
         public void run() {
 
